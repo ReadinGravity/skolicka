@@ -1,11 +1,30 @@
-mps="ahoj svet"
-print (mps)
+meno=input("zadaj mi meno suboru: ")
 
-#prechadzanie stringu
-for i in range(0,len(mps)): #funckai kt vrati dlzku retzca
-    print (mps[i])
+def otvor_subor(meno="vstup3.txt"):
+    return open("data/"+meno, "r", encoding="UTF-8")
 
-#druhy sposob
-for j in mps:
-    print(j.isupper())
-#v stringu nevies prepisat jednotlive pismenka, premenne su menitelne a nemenitelne
+
+def spracuj_subor(fr):
+    riadky=fr.readlines()
+    temp=riadky[1].strip()
+    print("'" + temp + "'")
+    slova=temp.split(" ")
+    print(slova[0])
+    print(temp.count(" "))
+    poc=0
+    for i in temp:
+        if i==" ":
+            poc+=1
+
+fr=otvor_subor(meno)
+spracuj_subor(fr)
+# shift f6 replace all occurences
+
+
+def sirka(fr):
+    maxlen=0
+    for riadok in fr:
+        if len(riadok)>maxlen:
+            maxlen=len(riadok)
+    return maxlen
+print(sirka(fr))
